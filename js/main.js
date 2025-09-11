@@ -4,47 +4,42 @@ const urlProject = urlParams.get('project');
 
 function setSheetAndOpen(sheet) {
 
-    const projectInput = document.querySelector('input[name="project"]');
-    // Optional: Update hidden input if you have one
-    if (projectInput) {
-        projectInput.value = sheet;
-    }
-    document.getElementById('displayedProject').textContent = projectInput.value;
-    if (projectInput.value == "mnhd all") {
-        document.getElementById('modal-title').style.display = 'none';
-    } else {
+    // document.getElementById('displayedProject').textContent = projectInput.value;
+    // if (projectInput.value == "mnhd all") {
+    //     document.getElementById('modal-title').style.display = 'none';
+    // } else {
 
-        console.log(
-            projectInput
-        );
+    //     console.log(
+    //         projectInput
+    //     );
 
-        document.getElementById('modal-title').style.display = 'block';
-    }
+    //     document.getElementById('modal-title').style.display = 'block';
+    // }
     // Open modal
-    const exampleModal = document.getElementById('exampleModal');
+    const exampleModal = document.getElementById('staticBackdrop');
     const modal = bootstrap.Modal.getInstance(exampleModal) || new bootstrap.Modal(exampleModal);
     modal.show();
 }
 document.addEventListener("DOMContentLoaded", function () {
     setTimeout(function() {
-        setSheetAndOpen('mnhd all');
-    }, 5000); // 5000ms = 5 seconds
+        setSheetAndOpen('Crysta Mountain View In house');
+    }, 7000); 
 });
 // Preloader
-window.addEventListener('load', function() {
-    const preloader = document.querySelector('.preloader');
-        preloader.classList.add('hidden');
-});
+// window.addEventListener('load', function() {
+//     const preloader = document.querySelector('.preloader');
+//         preloader.classList.add('hidden');
+// });
 
 // Navbar scroll effect
-window.addEventListener('scroll', function() {
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 100) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
+// window.addEventListener('scroll', function() {
+//     const navbar = document.getElementById('navbar');
+//     if (window.scrollY > 100) {
+//         navbar.classList.add('scrolled');
+//     } else {
+//         navbar.classList.remove('scrolled');
+//     }
+// });
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -80,15 +75,15 @@ document.querySelectorAll('.fade-in').forEach(el => {
 });
 
 // Scroll to top button
-const scrollTopBtn = document.getElementById('scrollTop');
+// const scrollTopBtn = document.getElementById('scrollTop');
 
-window.addEventListener('scroll', function() {
-    if (window.scrollY > 300) {
-        scrollTopBtn.classList.add('show');
-    } else {
-        scrollTopBtn.classList.remove('show');
-    }
-});
+// window.addEventListener('scroll', function() {
+//     if (window.scrollY > 300) {
+//         scrollTopBtn.classList.add('show');
+//     } else {
+//         scrollTopBtn.classList.remove('show');
+//     }
+// });
 
 
 async function handleSubmit(e, sheet) {
@@ -113,12 +108,12 @@ async function handleSubmit(e, sheet) {
       showAlert("الرجاء إدخال الاسم ورقم الهاتف.", "warning");
       return;
     }
-    const preloader = document.querySelector('.preloader');
-    preloader.classList.remove('hidden');
+    // const preloader = document.querySelector('.preloader');
+    // preloader.classList.remove('hidden');
     console.log(name, phone,sheet);
     
     // Show progress bar
-    const progressContainer = document.getElementById("progressContainer");
+    const progressContainer = document.getElementById("preloader");
     progressContainer.classList.remove("d-none");
   
     try {
@@ -139,20 +134,20 @@ async function handleSubmit(e, sheet) {
         name.value = "";
         phone.value = "";
           window.location.href = 'thank_you.html';
-      preloader.classList.add('hidden');
+      preloader.classList.add('d-none');
 
       } else {
         throw new Error(result.error || "Submission failed");
-          preloader.classList.add('hidden');
+        preloader.classList.add('d-none');
 
       }
     } catch (error) {
       console.error("Error:", error);
-      preloader.classList.add('hidden');
+      preloader.classList.add('d-none');
       showAlert("حدث خطأ، برجاء المحاولة مرة أخرى.", "danger");
     } finally {
-      progressContainer.classList.add("d-none");
-      preloader.classList.add('hidden');
+      preloader.classList.add('d-none');
+
     }
   }
   function showAlert(message, type) {
@@ -196,7 +191,7 @@ async function handleSubmit(e, sheet) {
     
   
   }
-
+  let current;
   function animateValue(id, start, end, duration) {
     let obj = document.getElementById(id);
     let range = end - start;
@@ -210,9 +205,11 @@ async function handleSubmit(e, sheet) {
       let now = new Date().getTime();
       let remaining = Math.max((endTime - now) / duration, 0);
       let value = Math.round(end - (remaining * range));
-      obj.textContent = value;
-      if (value == end) {
-        clearInterval(timer);
+      if (obj) {
+        obj.textContent = value;
+        if (value == end) {
+          clearInterval(timer);
+        }
       }
     }
 
@@ -226,6 +223,9 @@ async function handleSubmit(e, sheet) {
     animateValue("downpayment", 0, 10, 2000); // 10% مقدم
     animateValue("delivery", 0, 3, 2000);     // 3 سنوات للتسليم
     animateValue("price", 0, 1500000, 2500);  // 1,500,000 جنيه سعر البداية
-    document.getElementById("downpayment").textContent = current + "%";
+    if (current) {
+      
+      document.getElementById("downpayment").textContent = current + "%";
+    }
 
   });
