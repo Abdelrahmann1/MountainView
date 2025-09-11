@@ -525,7 +525,7 @@ section {
 }
 
 .contact-form {
-  background: rgba(255, 255, 255, 0.1);
+  background: white;
   padding: 2rem;
   border-radius: 20px;
   backdrop-filter: blur(10px);
@@ -538,17 +538,17 @@ section {
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
-  color: white;
+  color: var(--primary);
   font-weight: 500;
 }
 
 .form-group input {
   width: 100%;
   padding: 1rem;
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid var(--primary);
   border-radius: 10px;
   background: rgba(235, 228, 228, 0.1);
-  color: white;
+  color: var(--primary);
   font-size: 1rem;
   transition: border-color 0.3s ease;
   text-align: right;
@@ -560,7 +560,7 @@ section {
 }
 
 .form-group input::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--primary);
 }
 
 .submit-btn {
@@ -802,7 +802,7 @@ img {
 }
 
 .modal-content .contact-form {
-  color: white;
+  color: black;
 
 }
 
@@ -902,4 +902,40 @@ img {
 .stat-item span:last-child {
   font-size: 1.1rem;
   color: #444;
+}
+.location-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  align-items: center;
+  margin: 60px auto;
+  max-width: 1400px;
+  padding: 20px;
+}
+
+.location-image {
+  display: flex;
+  justify-content: center; /* يضمن إن الصورة تبقى في النص */
+}
+
+.location-image img {
+  width: 100%;
+  max-width: 600px; /* تمنع الصورة من التمدد الزائد */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* 📱 موبايل */
+@media (max-width: 768px) {
+  .location-section {
+    grid-template-columns: 1fr; /* عمود واحد */
+    text-align: center;
+  }
+
+ 
+
+  .location-image {
+    justify-content: center;
+    margin-top: 20px;
+  }
 }
