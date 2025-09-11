@@ -868,15 +868,14 @@ img {
   opacity: 0.8;
   transform: scale(1.1);
 }
-
 .highlight-box {
   background: #f9f9f9;
   border-radius: 12px;
-  padding: 30px;
+  padding: 20px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   text-align: center;
-  margin: 40px auto;
-  max-width: 900px;
+  margin: 30px auto;
+  max-width: 1100px;
 }
 
 .stats {
@@ -893,24 +892,47 @@ img {
 }
 
 .stat-number {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
-  color: var(--primary, #7DB143); /* لون أساسي */
-  margin-bottom: 8px;
+  color: var(--primary, #7DB143);
+  margin-bottom: 5px;
 }
 
 .stat-item span:last-child {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #444;
 }
+
+/* 📱 موبايل: الأربعة جنب بعض */
+@media (max-width: 768px) {
+  .stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .stat-item {
+    flex: 1;         /* كل عنصر ياخد نفس الحجم */
+    min-width: 25%;  /* يضمن الأربعة يظهروا في صف واحد */
+  }
+
+  .stat-number {
+    font-size: 1.2rem;
+  }
+
+  .stat-item span:last-child {
+    font-size: 0.75rem;
+  }
+}
+
 .location-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
+  /* gap: 30px; */
   align-items: center;
-  margin: 60px auto;
+  /* margin: 60px auto; */
   max-width: 1400px;
-  padding: 20px;
+  /* padding: 20px; */
 }
 
 .location-image {
@@ -938,4 +960,8 @@ img {
     justify-content: center;
     margin-top: 20px;
   }
+}
+.location-section {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
