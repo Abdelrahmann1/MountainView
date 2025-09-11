@@ -69,11 +69,11 @@ body {
 
 @keyframes spin {
   0% {
-      transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 
   100% {
-      transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
@@ -191,7 +191,8 @@ logo img {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Like background-size: cover */
+  object-fit: cover;
+  /* Like background-size: cover */
   z-index: 1;
 }
 
@@ -202,34 +203,38 @@ logo img {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Adjust darkness */
+  background: rgba(0, 0, 0, 0.5);
+  /* Adjust darkness */
   z-index: 2;
 }
 
 .hero-content {
-  max-width: 800px;
+  /* max-width: 800px; */
   color: white;
   z-index: 2;
   animation: fadeInUp 1s ease-out;
+
 }
 
 @keyframes fadeInUp {
   from {
-      opacity: 0;
-      transform: translateY(50px);
+    opacity: 0;
+    transform: translateY(50px);
   }
 
   to {
-      opacity: 1;
-      transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 .hero h1 {
   font-size: clamp(2.5rem, 5vw, 4rem);
   margin-bottom: 1rem;
+  margin-top: 5rem;
   font-weight: 700;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
 }
 
 .hero p {
@@ -361,17 +366,22 @@ section {
   gap: 2rem;
   margin-top: 3rem;
 }
+
 .featured {
-  grid-column: 1 / -1; /* Ensures it spans full grid width */
-  width: 100%; /* Full width */
+  grid-column: 1 / -1;
+  /* Ensures it spans full grid width */
+  width: 100%;
+  /* Full width */
   display: flex;
   flex-direction: row;
 }
-.featured .project-image{
-      flex: 1 !important;
-      height: auto;
-      min-width: 50%;
+
+.featured .project-image {
+  flex: 1 !important;
+  height: auto;
+  min-width: 50%;
 }
+
 .project-card {
   background: white;
   border-radius: 20px;
@@ -421,22 +431,26 @@ section {
   margin-bottom: 1rem;
   line-height: 1.6;
   font-weight: 500;
-  
+
 }
 
 .project-features {
   list-style: none;
   margin-bottom: 1.5rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* عمودين */
+  gap: 10px 30px;
+  /* مسافة بين العناصر */
 }
 
 .project-features li {
   color: black;
-  margin-bottom: 0.5rem;
   position: relative;
-  padding-left: 1.5rem;
   padding-right: 25px;
   /* مسافة من اليمين للأيقونة */
-
+  font-size: 1rem;
 }
 
 .project-features li::before {
@@ -446,6 +460,15 @@ section {
   color: var(--accent);
   font-weight: bold;
 }
+
+@media (max-width: 768px) {
+  .project-features {
+    grid-template-columns: 1fr;
+    /* عمود واحد في الموبايل */
+  }
+}
+
+
 
 .project-price {
   font-size: 1.3rem;
@@ -464,6 +487,7 @@ section {
   transition: all 0.3s ease;
   font-weight: 800;
   width: 100%;
+  font-size: large;
 }
 
 .project-button:hover {
@@ -572,7 +596,7 @@ footer {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background: var(--gold);
+  background: var(--primary);
   color: white;
   width: 50px;
   height: 50px;
@@ -618,72 +642,73 @@ footer {
 /* Responsive Design */
 @media (max-width: 768px) {
   .featured {
-      width: 100%; /* Full width */
-      flex-direction: column;
-    }
-  
+    width: 100%;
+    /* Full width */
+    flex-direction: column;
+  }
+
   .nav-links {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      background: var(--primary);
-      flex-direction: column;
-      padding: 1rem;
-      box-shadow: var(--shadow);
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--primary);
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: var(--shadow);
   }
 
   .nav-links.active {
-      display: flex;
+    display: flex;
   }
 
   .mobile-menu {
-      display: flex;
+    display: flex;
   }
 
   .about-content {
-      grid-template-columns: 1fr;
-      gap: 2rem;
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
   .about-stats {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
 
   .contact-content {
-      grid-template-columns: 1fr;
-      gap: 2rem;
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
   .projects-grid {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
 
   section {
-      padding: 3rem 1rem;
+    padding: 3rem 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .hero h1 {
-      font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .hero p {
-      font-size: 1rem;
+    font-size: 1rem;
   }
 
   .cta-button {
-      padding: 0.8rem 1.5rem;
+    padding: 0.8rem 1.5rem;
   }
 
   .project-content {
-      padding: 1.5rem;
+    padding: 1.5rem;
   }
 
   .contact-form {
-      padding: 1.5rem;
+    padding: 1.5rem;
   }
 }
 
@@ -710,17 +735,17 @@ img {
   nav,
   .scroll-top,
   .mobile-menu {
-      display: none;
+    display: none;
   }
 
   .hero {
-      height: auto;
-      background: none;
-      color: black;
+    height: auto;
+    background: none;
+    color: black;
   }
 
   section {
-      padding: 2rem 0;
+    padding: 2rem 0;
   }
 }
 
@@ -764,38 +789,82 @@ img {
 }
 
 .contact-image {
-  width: 100%;        /* تخليها تاخد عرض كامل */
-  height: 75%;       /* يحافظ على التناسق */
-  border-radius: 15px; /* حواف دائرية */
-  object-fit: cover;   /* يملأ المساحة بدون تشويه */
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* ظل جميل */
+  width: 100%;
+  /* تخليها تاخد عرض كامل */
+  height: 75%;
+  /* يحافظ على التناسق */
+  border-radius: 15px;
+  /* حواف دائرية */
+  object-fit: cover;
+  /* يملأ المساحة بدون تشويه */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  /* ظل جميل */
 }
-.modal-content .contact-form{
-      color: white;
 
-  }
-  .modal-content{
-      border-radius: 20px !important;
-          background: var(--dark) !important;
-          border: none !important;
-          color: white;
-  
-      }
+.modal-content .contact-form {
+  color: white;
 
-      #alertContainer {
-          position: fixed;
-          bottom: 20px;
-          left: 20px;
-          z-index: 10000;
-          width: 350px;
-        }
-        #alertContainer .alert {
-          margin-bottom: 10px;
-          max-width: 350px;
-          padding: 12px 16px;
-          font-size: 14px;
-          display: flex;
-          justify-content: space-between;
-          flex-direction: row-reverse;
-        }
-        
+}
+
+.modal-content {
+  border-radius: 20px !important;
+  background: var(--dark) !important;
+  border: none !important;
+  color: white;
+
+}
+
+#alertContainer {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 10000;
+  width: 350px;
+}
+
+#alertContainer .alert {
+  margin-bottom: 10px;
+  max-width: 350px;
+  padding: 12px 16px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+
+.contact-buttons {
+  display: flex;
+  gap: 15px;
+  /* space between buttons */
+  justify-content: center;
+  /* center them in the row */
+  margin-top: 20px;
+}
+
+.circle-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+/* WhatsApp green */
+.circle-btn.whatsapp {
+  background: #25d366;
+}
+
+/* Phone call blue */
+.circle-btn.phone {
+  background: #007bff;
+}
+
+.circle-btn:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
