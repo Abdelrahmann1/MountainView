@@ -193,5 +193,37 @@ async function handleSubmit(e, sheet) {
     }, AUTO_CLOSE_DELAY);
   
     // ✅ Listen for when Bootstrap finishes removing the alert
+    
   
   }
+
+  function animateValue(id, start, end, duration) {
+    let obj = document.getElementById(id);
+    let range = end - start;
+    let minTimer = 50;
+    let stepTime = Math.max(Math.floor(duration / range), minTimer);
+    let startTime = new Date().getTime();
+    let endTime = startTime + duration;
+    let timer;
+
+    function run() {
+      let now = new Date().getTime();
+      let remaining = Math.max((endTime - now) / duration, 0);
+      let value = Math.round(end - (remaining * range));
+      obj.textContent = value;
+      if (value == end) {
+        clearInterval(timer);
+      }
+    }
+
+    timer = setInterval(run, stepTime);
+    run();
+  }
+
+  // Call the function when the page loads
+  document.addEventListener("DOMContentLoaded", function() {
+    animateValue("installment", 0, 8, 2000);  // 8 سنوات تقسيط
+    animateValue("downpayment", 0, 10, 2000); // 10% مقدم
+    animateValue("delivery", 0, 3, 2000);     // 3 سنوات للتسليم
+    animateValue("price", 0, 1500000, 2500);  // 1,500,000 جنيه سعر البداية
+  });

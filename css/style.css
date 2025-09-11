@@ -868,3 +868,38 @@ img {
   opacity: 0.8;
   transform: scale(1.1);
 }
+
+.highlight-box {
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  margin: 40px auto;
+  max-width: 900px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--primary, #7DB143); /* لون أساسي */
+  margin-bottom: 8px;
+}
+
+.stat-item span:last-child {
+  font-size: 1.1rem;
+  color: #444;
+}
