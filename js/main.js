@@ -226,4 +226,6 @@ async function handleSubmit(e, sheet) {
     animateValue("downpayment", 0, 10, 2000); // 10% مقدم
     animateValue("delivery", 0, 3, 2000);     // 3 سنوات للتسليم
     animateValue("price", 0, 1500000, 2500);  // 1,500,000 جنيه سعر البداية
+    document.getElementById("downpayment").textContent = current + "%";
+
   });

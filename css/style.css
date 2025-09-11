@@ -367,6 +367,7 @@ section {
   margin-top: 3rem;
 }
 
+
 .featured {
   grid-column: 1 / -1;
   /* Ensures it spans full grid width */
