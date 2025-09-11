@@ -117,7 +117,7 @@ async function handleSubmit(e, sheet) {
     progressContainer.classList.remove("d-none");
   
     try {
-      const response = await fetch('./submit-sheet.php', {
+      const response = await fetch('../submit-sheet.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
@@ -133,7 +133,7 @@ async function handleSubmit(e, sheet) {
       if (result.success) {
         name.value = "";
         phone.value = "";
-          window.location.href = 'thank_you.html';
+          window.location.href = '../thank_you.html';
       preloader.classList.add('d-none');
 
       } else {
